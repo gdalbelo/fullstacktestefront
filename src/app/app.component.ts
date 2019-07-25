@@ -12,7 +12,9 @@ import { ApiService } from './api.service';
       <li><button routerLink="/users">Users</button></li>
       <li><button *ngIf="apiService.isAuthenticated" routerLink="/products">Products</button></li>
     </ul>
-    <router-outlet></router-outlet>
+    <div class="center">
+      <router-outlet></router-outlet>
+    </div>
   `,
   styleUrls: ['./app.component.css']
 })
