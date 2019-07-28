@@ -8,8 +8,10 @@ import { ActivatedRoute } from '@angular/router';
     <h1>Novo produto</h1>
     <form>
         <textarea [(ngModel)]="postMsg" name="description" placeholder="Post"></textarea>
-        <button (click)="post()" class="btn btn-primary">Post</button>
+        <button (click)="post()" routerLink="/products" class="btn btn-primary">Post</button>
     </form>
+    <h1>Produtos</h1>
+    <app-messages></app-messages>
   `,
   styleUrls: ['./app.component.css']
 })
@@ -22,5 +24,6 @@ export class PostComponent {
         const msg = this.postMsg;
         const author = this.apiService.getId;
         this.apiService.postMessage({msg, author});
+        this.apiService.messages.push({msg, author});
     }
 }
