@@ -25,5 +25,6 @@ export class PostComponent {
         const author = this.apiService.getId;
         this.apiService.postMessage({msg, author});
         this.apiService.messages.push({msg, author});
+        this.postMsg = '';
     }
 }
