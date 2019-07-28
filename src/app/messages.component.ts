@@ -25,10 +25,13 @@ export class MessagesComponent {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
-    const id = this.apiService.getId;
-    console.log('id: ' + id);
-    const userId = this.route.snapshot.params.id;
-    this.apiService.getMessage(userId);
+    if (this.route.snapshot.params.id) {
+      const userId = this.route.snapshot.params.id;
+      this.apiService.getMessage(userId);
+    } else {
+      const id = this.apiService.getId;
+      this.apiService.getMessage(id);
+    }
   }
 
   salvarProduto(msg, id) {
